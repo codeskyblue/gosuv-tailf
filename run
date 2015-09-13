@@ -1,0 +1,21 @@
+#!/bin/bash -
+#
+#
+# ENV
+#   - GOSUV_PROGRAM			ex: /usr/local/bin/gosuv
+#	- GOSUV_PLUGIN_NAME		ex: showpid
+#	- GOSUV_SERVER_ADDR		ex: localhost:17024
+
+#echo "SERV: $GOSUV_SERVER_ADDR"
+#echo "NAME: $GOSUV_PLUGIN_NAME"
+#echo "ARGS: $@"
+
+set -eu
+
+if test $# -ne 1
+then
+	echo "Usgae: gosuv tailf <name>"
+	exit 1
+fi
+
+$GOSUV_PROGRAM tail -f "$1"
